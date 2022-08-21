@@ -1,0 +1,34 @@
+// Sachin Chanchani
+// UIN: 828004948
+
+/**
+ * Palindrome Detection:
+ * out = 1 if a palindrome is detected in the sequence of bits "pqrst"
+ * for example, if sequence "pqrst" is 10101 then out = 1
+ * for example, if sequence "pqrst" is 10110 then out = 0
+ */
+
+CHIP Palindrome {
+
+    IN p, q, r, s, t;
+    OUT out;
+
+    PARTS:
+    // Put your code here:
+    Not(in=p, out=notP);
+    Not(in=q, out=notQ);
+    Not(in=s, out=notS);
+    Not(in=t, out=notT);
+
+    And(a=p, b=t, out=PT);
+    And(a=notP, b=notT, out=notPT);
+    And(a=q, b=s, out=QS);
+    And(a=notQ, b=notS, out=notQS);
+
+    Or(a=PT, b=notPT, out=primis);
+    Or(a=QS, b=notQS, out=secundus);
+
+    And(a=primis, b=secundus, out=out);
+
+
+}

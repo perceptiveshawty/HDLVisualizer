@@ -1,0 +1,24 @@
+// Sachin Chanchani
+// UIN: 828004948
+
+/**
+ * Exclusive-or gate:
+ * out = not (a == b)
+ */
+
+CHIP Xor {
+    IN a, b;
+    OUT out;
+
+    PARTS:
+    // Put your code here:
+    Not(in=a, out=notA);
+    Not(in=b, out=notB);
+    And(a=notA, b=b, out=primis);
+    And(a=a, b=notB, out=secundus);
+    Or(a=primis, b=secundus, out=out);
+}
+
+
+for (part) in top sorted list of vertices:
+  add to schemdraw

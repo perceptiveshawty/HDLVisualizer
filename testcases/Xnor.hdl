@@ -1,0 +1,17 @@
+// Sachin Chanchani
+// UIN: 828004948
+
+/**
+ * Exclusive-Nor gate:
+ * out = (a == b)
+ */
+
+CHIP Xnor {
+    IN a, b;
+    OUT out;
+
+    PARTS:
+    // Put your code here:
+    Xor(a=a, b=b, out=primis);
+    Not(in=primis, out=out);
+}
